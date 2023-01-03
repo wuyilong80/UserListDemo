@@ -45,7 +45,10 @@ class UserListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        UsersAPI(perPage: 15).requestData { data, error in
+            
+        }
         setupLayout()
     }
     
