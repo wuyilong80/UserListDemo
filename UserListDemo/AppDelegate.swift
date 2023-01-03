@@ -13,8 +13,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        setupRootVC()
+        
         return true
+    }
+    
+    func setupRootVC() {
+        guard let window = window else { return }        
+        let vc = UserListViewController()
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
     }
 }
 
