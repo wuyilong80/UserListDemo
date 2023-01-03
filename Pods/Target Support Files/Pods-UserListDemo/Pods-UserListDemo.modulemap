@@ -1,0 +1,6 @@
+framework module Pods_UserListDemo {
+  umbrella header "Pods-UserListDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
