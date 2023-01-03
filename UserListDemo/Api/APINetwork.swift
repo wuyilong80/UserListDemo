@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-let githubToken = "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"
+let githubToken = "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"
 
 class APINetwork<T: Codable> {
     typealias ResponseType = T
