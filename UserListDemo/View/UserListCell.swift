@@ -29,7 +29,6 @@ class UserListCell: UICollectionViewCell {
     
     lazy var userNameLabel: UILabel = {
        let label = UILabel()
-        label.text = "Test"
         label.textColor = .black
         label.font = .systemFont(ofSize: 14, weight: .regular)
         return label
@@ -44,6 +43,7 @@ class UserListCell: UICollectionViewCell {
         label.textColor = .white
         label.layer.cornerRadius = 11.25
         label.layer.masksToBounds = true
+        label.isHidden = true
         return label
     }()
     
@@ -54,7 +54,7 @@ class UserListCell: UICollectionViewCell {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError("init(coder:) has not been implemented")
     }
     
     func setupViews() {
@@ -81,6 +81,15 @@ class UserListCell: UICollectionViewCell {
         
         userStatusLabel.snp.makeConstraints { make in
             make.width.equalTo(60)
+        }
+    }
+    
+    func updateUserInfo(info: UserInfo) {
+        userNameLabel.text = info.login
+        userStatusLabel.isHidden = !(info.admin ?? false)
+        
+        info.getAvatarImage { _, _ in
+            
         }
     }
 }

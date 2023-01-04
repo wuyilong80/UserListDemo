@@ -8,7 +8,9 @@
 import UIKit
 import Alamofire
 
-let githubToken = "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"
+let githubToken = "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"
+
+//let githubToken = "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"
 
 class APINetwork<T: Codable> {
     typealias ResponseType = T
@@ -34,7 +36,7 @@ class APINetwork<T: Codable> {
                 }
             case .failure(_):
                 let statusCode = requestData.response?.statusCode
-                completionHandler(nil, "Get data error: \(String(describing: statusCode))")
+                completionHandler(nil, "\(statusCode)")
             }
         }
     }

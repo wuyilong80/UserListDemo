@@ -8,14 +8,11 @@
 import UIKit
 import SnapKit
 
-class UserListViewController: UIViewController {
-    
-    // api login first
-    // get user list
+class UserListViewController: BasaeViewController {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "test"
+        label.text = "UserList"
         label.textColor = .black
         label.font = .systemFont(ofSize: 18, weight: .medium)
         label.textAlignment = .center
@@ -43,18 +40,28 @@ class UserListViewController: UIViewController {
         return collection
     }()
     
+    let viewModel: UserListViewModel
+    
+    //MARK: - Initialize
+    init(viewModel: UserListViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UsersAPI(perPage: 15).requestData { data, error in
-            
-        }
         setupLayout()
+        viewModel.delegate = self
+        viewModel.loadData()
     }
     
-    func setupLayout() {
-        view.backgroundColor = .white
-        
+    override func setupLayout() {
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.leading.trailing.top.equalTo(view.safeAreaLayoutGuide)
@@ -66,17 +73,44 @@ class UserListViewController: UIViewController {
             make.top.equalTo(titleLabel.snp.bottom)
             make.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
         }
+        
+        super.setupLayout()
     }
 }
 
 extension UserListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return viewModel.userInfoList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserListCell.reuseIdentifier, for: indexPath)
+        if let cell = cell as? UserListCell {
+            cell.updateUserInfo(info: viewModel.userInfoList[indexPath.row])
+        }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.userInfoList.count - 1 {
+            viewModel.loadMoreData()
+        }
+    }
+}
+
+extension UserListViewController: BaseViewModelDelegate {
+    
+    func willLoadData() {
+        updateIndicatorStatus(isHidden: false)
+    }
+    
+    func didLoadData() {
+        updateIndicatorStatus(isHidden: true)
+        listCollectionView.reloadData()
+    }
+    
+    func receiveError(code: String?) {
+        updateIndicatorStatus(isHidden: true)
     }
 }

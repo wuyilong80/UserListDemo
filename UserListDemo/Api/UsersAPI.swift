@@ -13,8 +13,11 @@ class UsersAPI: APINetwork<[UserInfo]> {
         return "/users"
     }
     
-    required init(perPage: Int) {
+    required init(sinceId: Int, perPage: Int) {
         super.init()
-        self.parameters = ["per_page": perPage]
+        self.parameters = [
+            "since": sinceId,
+            "per_page": perPage
+        ]
     }
 }

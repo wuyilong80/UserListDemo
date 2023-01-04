@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21447C542965109A007A5D44 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21447C532965109A007A5D44 /* UserListViewModel.swift */; };
+		21447C5729652A26007A5D44 /* BasaeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21447C5629652A26007A5D44 /* BasaeViewController.swift */; };
+		21447C5929652DA8007A5D44 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21447C5829652DA8007A5D44 /* BaseViewModel.swift */; };
 		214D2A5D29645C0A00B25F62 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214D2A5C29645C0A00B25F62 /* UserInfo.swift */; };
 		219780412963C0EB006C8A2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219780402963C0EB006C8A2A /* AppDelegate.swift */; };
 		219780482963C0EB006C8A2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 219780462963C0EB006C8A2A /* Main.storyboard */; };
@@ -46,6 +49,9 @@
 		0894F62C263CB9677B3C07C5 /* Pods-UserListDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserListDemo.release.xcconfig"; path = "Target Support Files/Pods-UserListDemo/Pods-UserListDemo.release.xcconfig"; sourceTree = "<group>"; };
 		08C557E9CA097802138A9403 /* Pods_UserListDemo_UserListDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UserListDemo_UserListDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C73809CF3EDC66430CB2C5A /* Pods-UserListDemo-UserListDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserListDemo-UserListDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-UserListDemo-UserListDemoUITests/Pods-UserListDemo-UserListDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		21447C532965109A007A5D44 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		21447C5629652A26007A5D44 /* BasaeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasaeViewController.swift; sourceTree = "<group>"; };
+		21447C5829652DA8007A5D44 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		214D2A5C29645C0A00B25F62 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		2197803D2963C0EB006C8A2A /* UserListDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserListDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		219780402963C0EB006C8A2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				219780712963D1F2006C8A2A /* UserListViewController.swift */,
+				21447C5629652A26007A5D44 /* BasaeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,6 +200,8 @@
 		219780752963DA2C006C8A2A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				21447C532965109A007A5D44 /* UserListViewModel.swift */,
+				21447C5829652DA8007A5D44 /* BaseViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -466,7 +475,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21447C5729652A26007A5D44 /* BasaeViewController.swift in Sources */,
+				21447C5929652DA8007A5D44 /* BaseViewModel.swift in Sources */,
 				219780782963DBBC006C8A2A /* UserListCell.swift in Sources */,
+				21447C542965109A007A5D44 /* UserListViewModel.swift in Sources */,
 				2197808629641608006C8A2A /* UsersAPI.swift in Sources */,
 				219780412963C0EB006C8A2A /* AppDelegate.swift in Sources */,
 				21978084296413F5006C8A2A /* APINetwork.swift in Sources */,
