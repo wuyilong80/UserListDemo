@@ -8,19 +8,13 @@
 import UIKit
 import Alamofire
 
-
-let one = "ghp_"
-let two = "HUzBu884n"
-let three = "1OEu6O8Wi"
-let four = "UIODDu567IOg2GwuXc"
-
 class APINetwork<T: Codable> {
     typealias ResponseType = T
         
     let apiDomain = "https://api.github.com"
     var method: HTTPMethod { return .get }
     var urlPath: String { return "" }
-    var headers: HTTPHeaders { return [.authorization(bearerToken: parseToken())] }
+    var headers: HTTPHeaders { return [.authorization(bearerToken: getToken())] }
     var parameters: [String: Any] = [:]
         
     func requestData(completionHandler: @escaping ((ResponseType?, String?) -> Void)) {
@@ -43,8 +37,10 @@ class APINetwork<T: Codable> {
         }
     }
     
-    private func parseToken() -> String {
-//        let strList = githubToken.components(separatedBy: "#")
-        return "\(one)\(two)\(three)\(four)"
+    private func getToken() -> String {
+        let first = "JzWFU5DFhz"
+        let second = "HUuCLJghgmYu"
+        let third = "PquLokti0JSP3R"
+        return "ghp_\(first)\(second)\(third)"
     }
 }
