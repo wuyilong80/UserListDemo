@@ -32,7 +32,7 @@ class APINetwork<T: Codable> {
                 }
             case .failure(_):
                 let statusCode = requestData.response?.statusCode
-                completionHandler(nil, "\(String(describing: statusCode))")
+                completionHandler(nil, String(format: "%d", statusCode ?? 0))
             }
         }
     }

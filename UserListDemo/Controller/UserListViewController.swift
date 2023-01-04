@@ -107,10 +107,11 @@ extension UserListViewController: BaseViewModelDelegate {
     
     func didLoadData() {
         updateIndicatorStatus(isHidden: true)
-        listCollectionView.reloadData()
+        listCollectionView.reloadItems(at: viewModel.reloadIndexPaths)
     }
     
-    func receiveError(code: String?) {
+    func receiveError(message: String?) {
         updateIndicatorStatus(isHidden: true)
+        self.showAlert(message: message ?? "")
     }
 }

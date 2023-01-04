@@ -10,7 +10,7 @@ import UIKit
 protocol BaseViewModelDelegate: AnyObject {
     func willLoadData()
     func didLoadData()
-    func receiveError(code: String?)
+    func receiveError(message: String?)
 }
 
 class BaseViewModel: NSObject {

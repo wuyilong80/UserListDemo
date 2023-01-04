@@ -12,9 +12,10 @@ class UserListViewModel: BaseViewModel {
 
     private var sinceId: Int
     private var perPage: Int
+    private var isLoadCompleted: Bool = false
     
+    var reloadIndexPaths: [IndexPath] = []
     var userInfoList: [UserInfo] = []
-    var isLoadCompleted: Bool = false
     
     init(sinceId: Int, perPage: Int) {
         self.sinceId = sinceId
@@ -28,7 +29,9 @@ class UserListViewModel: BaseViewModel {
                 self.parseResponseData(list: userInfos)
                 self.delegate?.didLoadData()
             } else {
-                self.delegate?.receiveError(code: errorCode)
+                self.reloadIndexPaths = []
+                let message = ErrorHandler(errorCode: errorCode).handler()
+                self.delegate?.receiveError(message: message)
             }
         }
     }
@@ -38,15 +41,20 @@ class UserListViewModel: BaseViewModel {
             sinceId = id
             loadData()
         } else {
+            reloadIndexPaths = []
             delegate?.didLoadData()
         }
     }
     
-    func parseResponseData(list: [UserInfo]) {
+    private func parseResponseData(list: [UserInfo]) {
         if list.isEmpty {
             isLoadCompleted = true
         } else {
-            self.userInfoList += list
+            reloadIndexPaths = []
+            for index in userInfoList.count ..< userInfoList.count + list.count {
+                reloadIndexPaths.append(IndexPath(item: index, section: 0))
+            }
+            userInfoList += list
         }
     }
 }
