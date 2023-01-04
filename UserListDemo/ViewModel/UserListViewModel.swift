@@ -17,11 +17,13 @@ class UserListViewModel: BaseViewModel {
     var reloadIndexPaths: [IndexPath] = []
     var userInfoList: [UserInfo] = []
     
+    //MARK: - Initialize
     init(sinceId: Int, perPage: Int) {
         self.sinceId = sinceId
         self.perPage = perPage
     }
     
+    //MARK: - Method
     override func loadData() {
         delegate?.willLoadData()
         UsersAPI(sinceId: sinceId, perPage: perPage).requestData { userInfos, errorCode in

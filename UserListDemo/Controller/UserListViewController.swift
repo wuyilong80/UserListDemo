@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class UserListViewController: BasaeViewController {
+class UserListViewController: BaseViewController {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -61,6 +61,7 @@ class UserListViewController: BasaeViewController {
         viewModel.loadData()
     }
     
+    //MARK: - Method
     override func setupLayout() {
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
@@ -96,6 +97,14 @@ extension UserListViewController: UICollectionViewDelegate, UICollectionViewData
         if indexPath.row == viewModel.userInfoList.count - 1 {
             viewModel.loadMoreData()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let userInfo = viewModel.userInfoList[indexPath.row]
+        let detailViewModel = UserDetailViewModel(username: userInfo.login ?? "")
+        let detailVC = UserDetailViewController(viewModel: detailViewModel)
+        detailVC.modalPresentationStyle = .fullScreen
+        self.present(detailVC, animated: true)
     }
 }
 

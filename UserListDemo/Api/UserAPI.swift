@@ -7,6 +7,19 @@
 
 import UIKit
 
+class UserAPI: APINetwork<UserInfo> {
+    override var urlPath: String {
+        return "/users/\(userName)"
+    }
+    
+    var userName: String
+    
+    required init(userName: String) {
+        self.userName = userName
+        super.init()
+    }
+}
+
 class UsersAPI: APINetwork<[UserInfo]> {
     
     override var urlPath: String {

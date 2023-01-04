@@ -1,5 +1,5 @@
 //
-//  BasaeViewController.swift
+//  BaseViewController.swift
 //  UserListDemo
 //
 //  Created by Lawrence on 2023/1/4.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BasaeViewController: UIViewController {
+class BaseViewController: UIViewController {
 
     lazy var indicatorView: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
@@ -18,11 +18,10 @@ class BasaeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .white
     }
     
     func setupLayout() {
-        view.backgroundColor = .white
-        
         view.addSubview(indicatorView)
         indicatorView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
