@@ -12,15 +12,19 @@ class UserListViewModel: BaseViewModel {
 
     private var sinceId: Int
     private var perPage: Int
-    private var isLoadCompleted: Bool = false
+    private var maxCount: Int
+    private var isLoadCompleted: Bool {
+        return userInfoList.count >= maxCount
+    }
     
     var reloadIndexPaths: [IndexPath] = []
     var userInfoList: [UserInfo] = []
     
     //MARK: - Initialize
-    init(sinceId: Int, perPage: Int) {
+    init(sinceId: Int, perPage: Int, max: Int) {
         self.sinceId = sinceId
         self.perPage = perPage
+        self.maxCount = max
     }
     
     //MARK: - Method
@@ -49,9 +53,7 @@ class UserListViewModel: BaseViewModel {
     }
     
     private func parseResponseData(list: [UserInfo]) {
-        if list.isEmpty {
-            isLoadCompleted = true
-        } else {
+        if !list.isEmpty {
             reloadIndexPaths = []
             for index in userInfoList.count ..< userInfoList.count + list.count {
                 reloadIndexPaths.append(IndexPath(item: index, section: 0))
