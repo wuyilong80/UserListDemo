@@ -23,7 +23,6 @@ class UserListCell: UICollectionViewCell {
     lazy var userAvatarImgView: UIImageView = {
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
-        imgView.layer.cornerRadius = 30
         return imgView
     }()
     
@@ -57,6 +56,10 @@ class UserListCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        userAvatarImgView.image = nil
+    }
+    
     func setupViews() {
         contentView.layer.cornerRadius = 10
         contentView.backgroundColor = .white
@@ -69,8 +72,6 @@ class UserListCell: UICollectionViewCell {
             make.top.bottom.equalToSuperview().inset(10)
             make.width.equalTo(userAvatarImgView.snp.height)
         }
-        userAvatarImgView.backgroundColor = .red
-        
         
         contentView.addSubview(stackView)
         stackView.snp.makeConstraints { make in
@@ -87,9 +88,6 @@ class UserListCell: UICollectionViewCell {
     func updateUserInfo(info: UserInfo) {
         userNameLabel.text = info.login
         userStatusLabel.isHidden = !(info.admin ?? false)
-        
-        info.getAvatarImage { _, _ in
-            
-        }
+        userAvatarImgView.getImage(urlString: info.avatarUrl, radius: 30)
     }
 }

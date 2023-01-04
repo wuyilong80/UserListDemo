@@ -8,6 +8,7 @@ target 'UserListDemo' do
   # Pods for UserListDemo
   pod 'Alamofire'
   pod 'SnapKit', '~> 5.0.0'
+  pod 'SDWebImage'
 
   target 'UserListDemoTests' do
     inherit! :search_paths

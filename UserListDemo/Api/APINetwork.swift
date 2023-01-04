@@ -14,7 +14,7 @@ class APINetwork<T: Codable> {
     let apiDomain = "https://api.github.com"
     var method: HTTPMethod { return .get }
     var urlPath: String { return "" }
-    var headers: HTTPHeaders { return [.authorization(bearerToken: getToken())] }
+    var headers: HTTPHeaders { return [.authorization(bearerToken: getAuthorization())] }
     var parameters: [String: Any] = [:]
         
     func requestData(completionHandler: @escaping ((ResponseType?, String?) -> Void)) {
@@ -37,10 +37,10 @@ class APINetwork<T: Codable> {
         }
     }
     
-    private func getToken() -> String {
-        let first = "JzWFU5DFhz"
-        let second = "HUuCLJghgmYu"
-        let third = "PquLokti0JSP3R"
+    private func getAuthorization() -> String {
+        let first = "MKxsFA66j4Sl0"
+        let second = "OVduVql181c"
+        let third = "IaRrq73GJhke"
         return "ghp_\(first)\(second)\(third)"
     }
 }

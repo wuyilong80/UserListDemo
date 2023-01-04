@@ -21,7 +21,4 @@ struct UserInfo: Codable {
         case htmlUrl = "html_url"
         case admin = "site_admin"
     }
-    
-    func getAvatarImage(completeHandler: ((UIImage?, String?) -> Void)) {
-    }
 }
