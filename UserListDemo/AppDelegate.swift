@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupRootVC() {
         guard let window = window else { return }        
-        let vc = UserListViewController(viewModel: UserListViewModel(sinceId: 0, perPage: 30))
+        let vc = UserListViewController(viewModel: UserListViewModel(sinceId: 0, perPage: 10, max: 100))
         window.rootViewController = vc
         window.makeKeyAndVisible()
     }
