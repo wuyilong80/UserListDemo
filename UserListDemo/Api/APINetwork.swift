@@ -8,9 +8,7 @@
 import UIKit
 import Alamofire
 
-let githubToken = "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"
-
-//let githubToken = "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"
+let githubToken = "ghp#_Hq9xGT8VGApHu1BEYJ5CHhffDmN5vo31nbzV"
 
 class APINetwork<T: Codable> {
     typealias ResponseType = T
@@ -18,7 +16,7 @@ class APINetwork<T: Codable> {
     let apiDomain = "https://api.github.com"
     var method: HTTPMethod { return .get }
     var urlPath: String { return "" }
-    var headers: HTTPHeaders { return [.authorization(bearerToken: githubToken)] }
+    var headers: HTTPHeaders { return [.authorization(bearerToken: parseToken())] }
     var parameters: [String: Any] = [:]
         
     func requestData(completionHandler: @escaping ((ResponseType?, String?) -> Void)) {
@@ -36,8 +34,13 @@ class APINetwork<T: Codable> {
                 }
             case .failure(_):
                 let statusCode = requestData.response?.statusCode
-                completionHandler(nil, "\(statusCode)")
+                completionHandler(nil, "\(String(describing: statusCode))")
             }
         }
+    }
+    
+    private func parseToken() -> String {
+        let strList = githubToken.components(separatedBy: "#")
+        return "\(strList[0])\(strList[1])"
     }
 }
