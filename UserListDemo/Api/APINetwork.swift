@@ -38,9 +38,10 @@ class APINetwork<T: Codable> {
     }
     
     private func getAuthorization() -> String {
-        let first = "MKxsFA66j4Sl0"
-        let second = "OVduVql181c"
-        let third = "IaRrq73GJhke"
-        return "ghp_\(first)\(second)\(third)"
+        var key = ""
+        if let path = Bundle.main.path(forResource: "keys", ofType: "plist"), let keys = NSDictionary(contentsOfFile: path) {
+            key = keys["github_token"] as? String ?? ""
+        }
+        return key
     }
 }

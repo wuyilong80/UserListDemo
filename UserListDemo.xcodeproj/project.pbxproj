@@ -29,6 +29,7 @@
 		2197807B2963F889006C8A2A /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197807A2963F889006C8A2A /* UIView+extension.swift */; };
 		21978084296413F5006C8A2A /* APINetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21978083296413F5006C8A2A /* APINetwork.swift */; };
 		2197808629641608006C8A2A /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197808529641608006C8A2A /* UserAPI.swift */; };
+		219DA7B22967B3F800560846 /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 219DA7B12967B3F800560846 /* keys.plist */; };
 		3F0DD9267CC409D88E92EE0D /* Pods_UserListDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCC92FFE9871E6EF8F3EC55 /* Pods_UserListDemoTests.framework */; };
 		4EEE48D7EFDC45B45FC05C3F /* Pods_UserListDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80C5AEA0D0F9BF487A5B1419 /* Pods_UserListDemo.framework */; };
 		DB5FC7331D7AFB44A6DBFF97 /* Pods_UserListDemo_UserListDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C557E9CA097802138A9403 /* Pods_UserListDemo_UserListDemoUITests.framework */; };
@@ -81,6 +82,7 @@
 		2197807A2963F889006C8A2A /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		21978083296413F5006C8A2A /* APINetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APINetwork.swift; sourceTree = "<group>"; };
 		2197808529641608006C8A2A /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		219DA7B12967B3F800560846 /* keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		272098A49F2883D3DA07D5D2 /* Pods-UserListDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserListDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-UserListDemoTests/Pods-UserListDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7DB1214BD25756084D8F5D69 /* Pods-UserListDemo-UserListDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserListDemo-UserListDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-UserListDemo-UserListDemoUITests/Pods-UserListDemo-UserListDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		80C5AEA0D0F9BF487A5B1419 /* Pods_UserListDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UserListDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +173,7 @@
 				219780492963C0ED006C8A2A /* Assets.xcassets */,
 				2197804B2963C0ED006C8A2A /* LaunchScreen.storyboard */,
 				2197804E2963C0ED006C8A2A /* Info.plist */,
+				219DA7B12967B3F800560846 /* keys.plist */,
 			);
 			path = UserListDemo;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				219DA7B22967B3F800560846 /* keys.plist in Resources */,
 				2197804D2963C0ED006C8A2A /* LaunchScreen.storyboard in Resources */,
 				2197804A2963C0ED006C8A2A /* Assets.xcassets in Resources */,
 				219780482963C0EB006C8A2A /* Main.storyboard in Resources */,
